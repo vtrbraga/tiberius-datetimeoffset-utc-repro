@@ -1,0 +1,23 @@
+[package]
+name = "dto-repro"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "tiberius =0.7.3"
+
+[[bin]]
+name = "dto-repro"
+path = "../../src/main.rs"
+
+[features]
+default = ["time-path"]
+time-path = ["dep:time", "tiberius/time"]
+
+[dependencies]
+tiberius = { version = "=0.7.3", features = ["chrono"] }
+chrono = "=0.4.45"
+time = { version = "=0.3.55", optional = true }
+tokio = { version = "=1.53.3", features = ["rt", "net", "macros"] }
+tokio-util = { version = "=0.7.20", features = ["compat"] }
+
+[workspace]
